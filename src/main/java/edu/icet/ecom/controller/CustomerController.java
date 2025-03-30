@@ -13,6 +13,7 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/customer")
 @RequiredArgsConstructor
@@ -26,11 +27,10 @@ public class CustomerController {
     public void addCustomer(@RequestBody Customer customer){
         service.addCustomer(customer);
     }
-@GetMapping("/getall")
-    public List<Customer> getall() {
-        return service.getall();
 
-    }
+    @GetMapping("/getall")
+    public List<Customer> getall() {
+        return service.getall();}
 
     @DeleteMapping("/delete/{id}")
     public void deleteCustomer(@PathVariable Integer id){
@@ -43,8 +43,8 @@ public class CustomerController {
     }
 
     @GetMapping("/search-by-id/{id}")
-    public Customer searchById (@PathVariable Integer Id){
-        return service.SearchById(Id);
+    public Customer searchById (@PathVariable Integer id){
+        return service.SearchById(id);
     }
 
     @GetMapping("/SearchByName/{name}")

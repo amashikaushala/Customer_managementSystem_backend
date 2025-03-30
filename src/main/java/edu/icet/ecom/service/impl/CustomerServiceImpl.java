@@ -31,10 +31,7 @@ public class CustomerServiceImpl implements CustomerService {
 
         all.forEach(CustomerEntity ->{
             customerList.add(mapper.map(CustomerEntity,Customer.class));
-
-
         });
-
         return customerList;
     }
 
@@ -43,7 +40,7 @@ public class CustomerServiceImpl implements CustomerService {
         repository.deleteById(id);
 
     }
-@Override
+    @Override
     public void updateCustomer(Customer customer){
         repository.save(mapper.map(customer,CustomerEntity.class));
     }
@@ -51,8 +48,6 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer SearchById(Integer id) {
         return mapper.map(repository.findById(id),Customer.class);
-
-
     }
 
     @Override
@@ -60,12 +55,8 @@ public class CustomerServiceImpl implements CustomerService {
         List<CustomerEntity> byName=repository.findByName(name);
         List<Customer>customerList=new ArrayList<>();
         byName.forEach(CustomerEntity-> {
-
             customerList.add(mapper.map(CustomerEntity,Customer.class));
-
         });
         return customerList;
     }
-
-
 }

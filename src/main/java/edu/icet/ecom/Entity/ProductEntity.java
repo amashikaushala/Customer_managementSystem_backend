@@ -11,13 +11,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @ToString
 @Entity
-@Table(name = "Customer")
+@Table(name = "Product")
+public class ProductEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-public class CustomerEntity {
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-    private String address;
-    private String phone;
+    private String price;
 }
